@@ -1,0 +1,61 @@
+/**
+ * 全局样式变量定义
+ */
+
+/* 主题色 */
+$uni-color-primary: #667eea;
+$uni-color-success: #52c41a;
+$uni-color-warning: #ff9500;
+$uni-color-error: #ff6b6b;
+
+/* 渐变色 */
+$uni-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+/* 文字颜色 */
+$uni-text-color: #333333;
+$uni-text-color-grey: #666666;
+$uni-text-color-placeholder: #999999;
+$uni-text-color-disable: #cccccc;
+
+/* 背景色 */
+$uni-bg-color: #ffffff;
+$uni-bg-color-grey: #f5f5f5;
+$uni-bg-color-hover: #fafafa;
+$uni-bg-color-mask: rgba(0, 0, 0, 0.4);
+
+/* 边框颜色 */
+$uni-border-color: #e5e5e5;
+
+/* 字体大小 */
+$uni-font-size-xs: 20rpx;
+$uni-font-size-sm: 24rpx;
+$uni-font-size-base: 28rpx;
+$uni-font-size-lg: 32rpx;
+$uni-font-size-xl: 36rpx;
+$uni-font-size-xxl: 40rpx;
+
+/* 间距 */
+$uni-spacing-xs: 10rpx;
+$uni-spacing-sm: 20rpx;
+$uni-spacing-base: 30rpx;
+$uni-spacing-lg: 40rpx;
+$uni-spacing-xl: 60rpx;
+
+/* 圆角 */
+$uni-border-radius-sm: 8rpx;
+$uni-border-radius-base: 16rpx;
+$uni-border-radius-lg: 24rpx;
+$uni-border-radius-circle: 50%;
+
+/* 阴影 */
+$uni-shadow-sm: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+$uni-shadow-base: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
+$uni-shadow-lg: 0 8rpx 30rpx rgba(0, 0, 0, 0.12);
+
+/* 动画时间 */
+$uni-animation-duration-base: 0.3s;
+$uni-animation-duration-fast: 0.2s;
+
+/* 安全区域 */
+$uni-safe-area-bottom: env(safe-area-inset-bottom);
+$uni-safe-area-top: env(safe-area-inset-top);

@@ -69,6 +69,11 @@
           <text class="menu-label">关于我们</text>
           <text class="menu-arrow">></text>
         </view>
+        <view class="menu-item" @click="handleSwitchRole">
+          <text class="menu-icon">🔄</text>
+          <text class="menu-label">切换角色</text>
+          <text class="menu-arrow">></text>
+        </view>
         <view class="menu-item menu-item-logout" @click="handleLogout">
           <text class="menu-icon">🚪</text>
           <text class="menu-label">退出登录</text>
@@ -174,6 +179,11 @@ const handleAboutClick = () => {
     title: "关于我们功能待开发",
     icon: "none",
   });
+};
+
+// 切换角色（不退出登录，直接进入角色选择页）
+const handleSwitchRole = () => {
+  uni.reLaunch({ url: "/pages/auth/role-select" });
 };
 
 // 退出登录

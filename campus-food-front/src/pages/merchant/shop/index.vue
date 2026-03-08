@@ -102,8 +102,9 @@
       <button class="save-btn" @click="handleSave">保存修改</button>
     </view>
 
-    <!-- 退出登录 -->
+    <!-- 切换角色 / 退出登录 -->
     <view class="logout-section">
+      <view class="switch-role-btn" @click="handleSwitchRole">切换角色</view>
       <view class="logout-btn" @click="handleLogout">退出登录</view>
     </view>
   </view>
@@ -220,6 +221,10 @@ const handleSave = async () => {
   }
 };
 
+const handleSwitchRole = () => {
+  uni.reLaunch({ url: "/pages/auth/role-select" });
+};
+
 const handleLogout = () => {
   uni.showModal({
     title: "提示",
@@ -330,6 +335,16 @@ onMounted(() => {
 
 .logout-section {
   padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.switch-role-btn {
+  text-align: center;
+  font-size: 30rpx;
+  color: #667eea;
+  padding: 24rpx 0;
 }
 
 .logout-btn {

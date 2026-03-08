@@ -6,7 +6,7 @@
         <text class="status-title">{{ userStore.userInfo?.nickName || '骑手' }}</text>
         <view class="status-actions">
           <text class="status-badge" :class="statusClass">{{ statusText }}</text>
-          <text class="switch-role" @click="goRoleSelect">切换身份</text>
+          <text class="switch-role" @click="goRoleSelect">切换角色</text>
           <text class="switch-role logout-link" @click="handleLogout">退出登录</text>
         </view>
       </view>
@@ -206,7 +206,7 @@ onPullDownRefresh(async () => {
 })
 
 const goRoleSelect = () => {
-  uni.navigateTo({ url: '/pages/auth/role-select' })
+  uni.reLaunch({ url: '/pages/auth/role-select' })
 }
 
 const handleLogout = () => {

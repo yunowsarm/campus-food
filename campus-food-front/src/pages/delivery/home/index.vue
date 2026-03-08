@@ -7,6 +7,7 @@
         <view class="status-actions">
           <text class="status-badge" :class="statusClass">{{ statusText }}</text>
           <text class="switch-role" @click="goRoleSelect">切换身份</text>
+          <text class="switch-role logout-link" @click="handleLogout">退出登录</text>
         </view>
       </view>
     </view>
@@ -208,6 +209,19 @@ const goRoleSelect = () => {
   uni.navigateTo({ url: '/pages/auth/role-select' })
 }
 
+const handleLogout = () => {
+  uni.showModal({
+    title: '提示',
+    content: '退出后需重新登录，是否退出？',
+    success: (res) => {
+      if (res.confirm) {
+        userStore.logout()
+        uni.reLaunch({ url: '/pages/auth/login' })
+      }
+    },
+  })
+}
+
 onMounted(() => {
   loadAll()
 })
@@ -242,6 +256,11 @@ onMounted(() => {
   font-size: 24rpx;
   opacity: 0.9;
   text-decoration: underline;
+}
+
+.logout-link {
+  margin-left: 8rpx;
+  opacity: 0.85;
 }
 
 .status-title {

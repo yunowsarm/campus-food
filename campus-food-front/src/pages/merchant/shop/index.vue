@@ -101,17 +101,24 @@
     <view class="save-section">
       <button class="save-btn" @click="handleSave">保存修改</button>
     </view>
+
+    <!-- 退出登录 -->
+    <view class="logout-section">
+      <view class="logout-btn" @click="handleLogout">退出登录</view>
+    </view>
   </view>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useMerchantStore } from "@/stores/merchant";
+import { useUserStore } from "@/stores/user";
 import { getMerchantMe, createMerchant, updateMerchant } from "@/api/merchants";
 import { uploadSingle } from "@/api/upload";
 import type { Merchant } from "@/types/merchant";
 
 const merchantStore = useMerchantStore();
+const userStore = useUserStore();
 
 const shopInfo = ref<Partial<Merchant>>({
   name: "",
@@ -213,6 +220,19 @@ const handleSave = async () => {
   }
 };
 
+const handleLogout = () => {
+  uni.showModal({
+    title: "提示",
+    content: "退出后需重新登录，是否退出？",
+    success: (res) => {
+      if (res.confirm) {
+        userStore.logout();
+        uni.reLaunch({ url: "/pages/auth/login" });
+      }
+    },
+  });
+};
+
 onMounted(() => {
   loadShopInfo();
 });
@@ -306,5 +326,16 @@ onMounted(() => {
   border-radius: 44rpx;
   font-size: 32rpx;
   border: none;
+}
+
+.logout-section {
+  padding: 20rpx 30rpx;
+}
+
+.logout-btn {
+  text-align: center;
+  font-size: 30rpx;
+  color: #e74c3c;
+  padding: 24rpx 0;
 }
 </style>

@@ -69,6 +69,11 @@
           <text class="menu-label">关于我们</text>
           <text class="menu-arrow">></text>
         </view>
+        <view class="menu-item menu-item-logout" @click="handleLogout">
+          <text class="menu-icon">🚪</text>
+          <text class="menu-label">退出登录</text>
+          <text class="menu-arrow">></text>
+        </view>
       </view>
     </view>
   </view>
@@ -168,6 +173,20 @@ const handleAboutClick = () => {
   uni.showToast({
     title: "关于我们功能待开发",
     icon: "none",
+  });
+};
+
+// 退出登录
+const handleLogout = () => {
+  uni.showModal({
+    title: "提示",
+    content: "退出后需重新登录，是否退出？",
+    success: (res) => {
+      if (res.confirm) {
+        userStore.logout();
+        uni.reLaunch({ url: "/pages/auth/login" });
+      }
+    },
   });
 };
 
@@ -321,5 +340,9 @@ onMounted(() => {
 .menu-arrow {
   font-size: 28rpx;
   color: #999999;
+}
+
+.menu-item-logout .menu-label {
+  color: #e74c3c;
 }
 </style>
